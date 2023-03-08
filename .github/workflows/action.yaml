@@ -4,6 +4,30 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+    runs-on: ubuntu-latest
+jobs:
+  run-linters:
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      # ESLint and Prettier must be in `package.json`
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        uses: wearerequired/lint-action@v2
+        with:
+          eslint: true
+          prettier: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,8 +51,6 @@ jobs:
         run: mvn dependency:resolve
       - name: Run Maven clean package
         run: mvn clean package
-      - name: Run Maven clean install
-        run: mvn clean install
       - run : |
           cd target 
           ls
