@@ -27,7 +27,7 @@ jobs:
         run: mvn dependency:resolve
       - name: Run Maven clean package
         run: mvn clean package
-      - name: Run Maven clean package
+      - name: Run Maven clean install
         run: mvn clean install
       - run : |
           cd target 
@@ -37,7 +37,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: War File
-          path: target/spring-boot-jpa-postgresql.war
+          path: target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war
       - name: Test with Maven
         run: mvn test
 
