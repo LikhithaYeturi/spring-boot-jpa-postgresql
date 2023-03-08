@@ -21,7 +21,7 @@ jobs:
       - name: Install Maven dependencies
         run: mvn dependency:resolve
       - name: Run Maven clean and package
-        run: mvn clean package
+        run: mvn clean install
       - name: Test with Maven
         run: mvn test
 
