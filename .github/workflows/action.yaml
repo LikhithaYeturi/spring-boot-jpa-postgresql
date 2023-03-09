@@ -11,8 +11,6 @@ jobs:
           - uses: actions/checkout@v3
           - name: Super-Linter
             uses: github/super-linter@v4.10.1
-            env:
-                GITHUB_TOCKEN: ${{secrets.GITHUB_TOCKEN}}
 
   build:
     runs-on: ubuntu-latest
