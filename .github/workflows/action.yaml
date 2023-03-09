@@ -49,7 +49,7 @@ jobs:
         with:
           name: War File
           path: target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war      
-  postgres-job:
+  container-job:
     runs-on: ubuntu-latest
     services:
       postgres_db:
@@ -70,5 +70,4 @@ jobs:
         java-version: 1.8
     - name: Run tests
       run: mvn test
-
 
