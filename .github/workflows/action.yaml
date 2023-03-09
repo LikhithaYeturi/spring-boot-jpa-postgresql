@@ -11,7 +11,14 @@ jobs:
           - uses: actions/checkout@v3
           - name: Super-Linter
             uses: github/super-linter@v4.10.1
-
+  test:
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v3
+          - name: Run the Maven verify phase
+            run: mvn --batch-mode --update-snapshots verify
+          - name: Test with Maven
+            run: mvn test
   build:
     runs-on: ubuntu-latest
     steps:
@@ -43,7 +50,6 @@ jobs:
         with:
           name: War File
           path: target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war
-      - name: Test with Maven
-        run: mvn test
+
 
 
