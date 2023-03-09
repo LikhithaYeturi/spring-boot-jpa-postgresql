@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [ "main" ]
 jobs:
-  Spring Boot lint:
+  lint:
       runs-on: ubuntu-latest
       steps:
           - uses: actions/checkout@v3
@@ -49,11 +49,5 @@ jobs:
         with:
           name: War File
           path: target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war
-  postgresql :
-          runs-on: ubuntu-latest
-          steps:
-          - uses: harmon758/postgresql-action@v1
-            with:
-                postgresql version: '11'
 
 
