@@ -49,5 +49,9 @@ jobs:
         with:
           name: War File
           path: target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war
-
+  postgresql:        
+      steps:
+      - uses: harmon758/postgresql-action@v1
+        with:
+          postgresql version: '11'
 
