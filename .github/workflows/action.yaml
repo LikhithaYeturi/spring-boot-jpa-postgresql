@@ -19,6 +19,7 @@ jobs:
             run: mvn --batch-mode --update-snapshots verify
           - name: Test with Maven
             run: mvn test
+          - run: exit 1
             continue-on-error: false
   build:
     runs-on: ubuntu-latest
