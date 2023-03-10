@@ -76,12 +76,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
     - name: Pushes test file
       uses: LikhithaYeturi/spring-boot-jpa-postgresql@main
       env:
-        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        API_TOKEN_GITHUB: ${{ secrets.token }}
       with:
+        repositories: C:\Git\NewSpring\spring-boot-jpa-postgresql\.github\workflows
         source_file: 'target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war'
         destination_repo: 'MonishaSivakumar98/test'
         destination_folder: 'main'
