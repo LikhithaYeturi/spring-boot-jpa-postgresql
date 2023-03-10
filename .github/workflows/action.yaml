@@ -81,7 +81,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.token }}
       with:
-        repositories: https://github.com/LikhithaYeturi/spring-boot-jpa-postgresql.git
+        repositories: LikhithaYeturi/spring-boot-jpa-postgresql@main/.github/workflows
         source_file: 'target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war'
         destination_repo: 'MonishaSivakumar98/test'
         destination_folder: 'main'
