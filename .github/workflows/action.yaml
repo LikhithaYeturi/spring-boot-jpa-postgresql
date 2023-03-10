@@ -77,7 +77,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Pushes test file
-      uses: LikhithaYeturi/spring-boot-jpa-postgresql@main/.github/workflows
+      uses: LikhithaYeturi/spring-boot-jpa-postgresql/main/.github/workflows
       env:
         API_TOKEN_GITHUB: ${{ secrets.token }}
       with:
