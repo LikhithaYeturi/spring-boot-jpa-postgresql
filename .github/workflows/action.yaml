@@ -51,7 +51,7 @@ jobs:
         with:
           name: War File
           path: target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war      
-  container-job:
+  postgresql:
     runs-on: ubuntu-latest
     services:
       postgres_db:
@@ -65,11 +65,27 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     steps:
     - uses: actions/checkout@v1
-
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
     - name: Run tests
       run: mvn test
+  copy-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Pushes test file
+      uses: LikhithaYeturi/spring-boot-jpa-postgresql@main
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+      with:
+        source_file: 'target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war'
+        destination_repo: 'MonishaSivakumar98/test'
+        destination_folder: 'main'
+        user_email: 'monishasivakumar55@gmail.com'
+        user_name: 'MonishaSivakumar98'
+        commit_message: 'A custom message for the commit'
 
