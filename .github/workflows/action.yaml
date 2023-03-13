@@ -98,21 +98,4 @@ jobs:
         java-version: 1.8
     - name: Run tests
       run: mvn test
-  copy-file:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Pushes test file
-      uses: LikhithaYeturi/spring-boot-jpa-postgresql/.github/workflows/
-      env:
-        API_TOKEN_GITHUB: ${{ secrets.token }}
-      with:
-
-        source_file: 'target/spring-boot-jpa-postgresql-0.0.1-SNAPSHOT.war'
-        destination_repo: 'MonishaSivakumar98/test'
-        destination_folder: 'main'
-        user_email: 'monishasivakumar55@gmail.com'
-        user_name: 'MonishaSivakumar98'
-        commit_message: 'A custom message for the commit'
 
