@@ -21,7 +21,10 @@ jobs:
             run: mvn test
 
   testfile:
-
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+      issues: 'write'
     runs-on: ubuntu-latest
 
     steps:
